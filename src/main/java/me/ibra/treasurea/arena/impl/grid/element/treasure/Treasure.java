@@ -4,8 +4,15 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class Treasure extends GridElementImpl {
 
-    public Treasure(int x, int y) {
+    private final int number;
+
+    public Treasure(int x, int y, int number) {
         super(x, y);
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     @Override

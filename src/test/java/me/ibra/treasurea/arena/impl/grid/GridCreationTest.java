@@ -44,12 +44,13 @@ public class GridCreationTest {
     }
 
     @Test
-    void should_produce_treasure_at_coordinates_zero_three_with_default_size() {
-        GridElement gridElement = new Treasure(0, 3);
+    void should_produce_treasure_of_two_at_coordinates_zero_three_with_default_size() {
+        Treasure gridElement = new Treasure(0, 3, 2);
         assertEquals(WIDTH, gridElement.getWidth());
         assertEquals(HEIGHT, gridElement.getHeight());
         assertEquals(0, gridElement.getX());
         assertEquals(3, gridElement.getY());
+        assertEquals(2, gridElement.getNumber());
         assertFalse(gridElement instanceof Impassable);
         assertEquals("T-0-3-2", gridElement.toString());
     }

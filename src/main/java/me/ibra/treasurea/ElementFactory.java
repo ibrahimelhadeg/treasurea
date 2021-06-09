@@ -37,7 +37,9 @@ public class ElementFactory {
     private static Element createTreasure(String treasureStr) {
         String[] arenaProps = treasureStr.split("-");
         return new Treasure(
-                Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
+                Integer.parseInt(arenaProps[1]),
+                Integer.parseInt(arenaProps[2]),
+                Integer.parseInt(arenaProps[3]));
     }
 
     private static Element createExplorer(String explorerStr) {

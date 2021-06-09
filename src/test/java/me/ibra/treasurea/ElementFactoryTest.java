@@ -48,7 +48,7 @@ public class ElementFactoryTest {
     void should_manufacture_treasure_element() {
         try (MockedConstruction<Treasure> mockedTreasure =
                      mockConstructionWithAnswer(
-                             Treasure.class, invocation -> new Treasure(0, 3))) {
+                             Treasure.class, invocation -> new Treasure(0, 3, 2))) {
             Element element = ElementFactory.createElement("T-0-3-2");
             assertTrue(element instanceof Treasure);
         }
