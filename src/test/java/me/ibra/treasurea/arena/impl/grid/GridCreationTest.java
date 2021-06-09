@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GridCreationTest {
 
     @Test
-    void gridCreation() {
+    void should_produce_grid_arena_of_width_three_and_height_four() {
         Grid grid = new FixedSizeGrid(3, 4);
         assertEquals(3, grid.getWidth());
         assertEquals(4, grid.getHeight());
@@ -20,7 +20,7 @@ public class GridCreationTest {
     }
 
     @Test
-    void lowLandCreation() {
+    void should_produce_lowland_at_coordinates_one_one_with_default_size() {
         GridElement gridElement = new LowLand();
         assertEquals(GridElement.WIDTH, gridElement.getWidth());
         assertEquals(GridElement.HEIGHT, gridElement.getHeight());
@@ -28,7 +28,7 @@ public class GridCreationTest {
     }
 
     @Test
-    void mountainCreation() {
+    void should_produce_mountain_at_coordinates_one_one_with_default_size() {
         GridElement gridElement = new Mountain();
         assertEquals(GridElement.WIDTH, gridElement.getWidth());
         assertEquals(GridElement.HEIGHT, gridElement.getHeight());
@@ -36,7 +36,7 @@ public class GridCreationTest {
     }
 
     @Test
-    void treasureCreation() {
+    void should_produce_treasure_at_coordinates_zero_three_with_default_size() {
         GridElement gridElement = new Treasure();
         assertEquals(GridElement.WIDTH, gridElement.getWidth());
         assertEquals(GridElement.HEIGHT, gridElement.getHeight());
@@ -44,7 +44,7 @@ public class GridCreationTest {
     }
 
     @Test
-    void explorerCreation() {
+    void should_produce_explorer_of_name_Indiana_at_coordinates_one_one_with_default_size() {
         GridElement gridElement = new Explorer();
         assertEquals(GridElement.WIDTH, gridElement.getWidth());
         assertEquals(GridElement.HEIGHT, gridElement.getHeight());

@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 public class ElementFactoryTest {
 
     @Test
-    void shouldProduceArenaOfGridForm() {
+    void should_manufacture_grid_arena() {
         try (MockedConstruction<FixedSizeGrid> mockedGrid =
                      mockConstructionWithAnswer(
                              FixedSizeGrid.class, invocation -> new FixedSizeGrid(3, 4))) {
@@ -25,7 +25,7 @@ public class ElementFactoryTest {
     }
 
     @Test
-    void shouldProduceLowLand() {
+    void should_manufacture_lowland_element() {
         try (MockedConstruction<LowLand> mocked =
                      mockConstructionWithAnswer(
                              LowLand.class, invocation -> new LowLand())) {
@@ -35,7 +35,7 @@ public class ElementFactoryTest {
     }
 
     @Test
-    void shouldProduceMountain() {
+    void should_manufacture_mountain_element() {
         try (MockedConstruction<Mountain> mockedMountain =
                      mockConstructionWithAnswer(
                              Mountain.class, invocation -> new Mountain())) {
@@ -45,7 +45,7 @@ public class ElementFactoryTest {
     }
 
     @Test
-    void shouldProduceTreasure() {
+    void should_manufacture_treasure_element() {
         try (MockedConstruction<Treasure> mockedTreasure =
                      mockConstructionWithAnswer(
                              Treasure.class, invocation -> new Treasure())) {
@@ -55,7 +55,7 @@ public class ElementFactoryTest {
     }
 
     @Test
-    void shouldProduceExplorer() {;
+    void should_manufacture_explorer_element() {
         try (MockedConstruction<Explorer> mockedExplorer =
                      mockConstructionWithAnswer(
                              Explorer.class, invocation -> new Explorer())) {
