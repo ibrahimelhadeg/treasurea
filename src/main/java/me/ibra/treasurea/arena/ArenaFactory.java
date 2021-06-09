@@ -2,7 +2,7 @@ package me.ibra.treasurea.arena;
 
 public class ArenaFactory {
 
-    public static String createElement(String elmStr) {
+    public static Element createElement(String elmStr) {
         return switch (elmStr.charAt(0)) {
             case 'C' -> createArena(elmStr);
             case 'M' -> createMountain(elmStr);
@@ -12,23 +12,23 @@ public class ArenaFactory {
         };
     }
 
-    private static String createArena(String arenaStr) {
-        return "ARENA";
+    private static Element createArena(String arenaStr) {
+        return new Element("ARENA");
     }
 
-    private static String createLowLand() {
-        return "LOWLAND";
+    private static Element createLowLand() {
+        return new Element("LOWLAND");
     }
 
-    private static String createMountain(String mountainStr) {
-        return "MOUNTAIN";
+    private static Element createMountain(String mountainStr) {
+        return new Element("MOUNTAIN");
     }
 
-    private static String createTreasure(String treasureStr) {
-        return "TREASURE";
+    private static Element createTreasure(String treasureStr) {
+        return new Element("TREASURE");
     }
 
-    private static String createExplorer(String explorerStr) {
-        return "EXPLORER";
+    private static Element createExplorer(String explorerStr) {
+        return new Element("EXPLORER");
     }
 }
