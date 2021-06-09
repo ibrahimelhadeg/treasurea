@@ -8,6 +8,8 @@ import me.ibra.treasurea.arena.impl.grid.element.treasure.Treasure;
 
 public class ElementFactory {
 
+    public static final String ATTRIBUTES_SEPARATOR = "-";
+
     public static Element createElement(String elmStr) {
         return switch (elmStr.charAt(0)) {
             case 'C' -> createFixedSizeGridArena(elmStr);
@@ -19,7 +21,7 @@ public class ElementFactory {
     }
 
     private static Element createFixedSizeGridArena(String arenaStr) {
-        String[] arenaProps = arenaStr.split("-");
+        String[] arenaProps = arenaStr.split(ATTRIBUTES_SEPARATOR);
         return new FixedSizeGrid(
                 Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
     }
@@ -29,13 +31,13 @@ public class ElementFactory {
     }
 
     private static Element createMountain(String mountainStr) {
-        String[] arenaProps = mountainStr.split("-");
+        String[] arenaProps = mountainStr.split(ATTRIBUTES_SEPARATOR);
         return new Mountain(
                 Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
     }
 
     private static Element createTreasure(String treasureStr) {
-        String[] arenaProps = treasureStr.split("-");
+        String[] arenaProps = treasureStr.split(ATTRIBUTES_SEPARATOR);
         return new Treasure(
                 Integer.parseInt(arenaProps[1]),
                 Integer.parseInt(arenaProps[2]),
@@ -43,7 +45,7 @@ public class ElementFactory {
     }
 
     private static Element createExplorer(String explorerStr) {
-        String[] arenaProps = explorerStr.split("-");
+        String[] arenaProps = explorerStr.split(ATTRIBUTES_SEPARATOR);
         return new Explorer(
                 arenaProps[1],
                 Integer.parseInt(arenaProps[2]),
