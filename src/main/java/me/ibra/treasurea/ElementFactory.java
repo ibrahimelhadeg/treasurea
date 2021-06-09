@@ -10,7 +10,7 @@ public class ElementFactory {
 
     public static Element createElement(String elmStr) {
         return switch (elmStr.charAt(0)) {
-            case 'C' -> createArena(elmStr);
+            case 'C' -> createFixedSizeGridArena(elmStr);
             case 'M' -> createMountain(elmStr);
             case 'T' -> createTreasure(elmStr);
             case 'A' -> createExplorer(elmStr);
@@ -18,7 +18,7 @@ public class ElementFactory {
         };
     }
 
-    private static Element createArena(String arenaStr) {
+    private static Element createFixedSizeGridArena(String arenaStr) {
         String[] arenaProps = arenaStr.split("-");
         return new FixedSizeGrid(
                 Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
