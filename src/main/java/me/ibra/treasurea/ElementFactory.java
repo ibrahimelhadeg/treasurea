@@ -1,6 +1,12 @@
-package me.ibra.treasurea.arena;
+package me.ibra.treasurea;
 
-public class ArenaFactory {
+import me.ibra.treasurea.arena.impl.grid.element.explorer.Explorer;
+import me.ibra.treasurea.arena.impl.grid.FixedSizeGrid;
+import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
+import me.ibra.treasurea.arena.impl.grid.element.mountain.Mountain;
+import me.ibra.treasurea.arena.impl.grid.element.treasure.Treasure;
+
+public class ElementFactory {
 
     public static Element createElement(String elmStr) {
         return switch (elmStr.charAt(0)) {
@@ -13,22 +19,22 @@ public class ArenaFactory {
     }
 
     private static Element createArena(String arenaStr) {
-        return new Element("ARENA");
+        return new FixedSizeGrid(arenaStr);
     }
 
     private static Element createLowLand() {
-        return new Element("LOWLAND");
+        return new LowLand();
     }
 
     private static Element createMountain(String mountainStr) {
-        return new Element("MOUNTAIN");
+        return new Mountain(mountainStr);
     }
 
     private static Element createTreasure(String treasureStr) {
-        return new Element("TREASURE");
+        return new Treasure(treasureStr);
     }
 
     private static Element createExplorer(String explorerStr) {
-        return new Element("EXPLORER");
+        return new Explorer(explorerStr);
     }
 }
