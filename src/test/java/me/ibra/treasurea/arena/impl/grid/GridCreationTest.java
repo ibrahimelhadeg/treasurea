@@ -1,6 +1,7 @@
 package me.ibra.treasurea.arena.impl.grid;
 
 import me.ibra.treasurea.arena.impl.grid.element.GridElement;
+import me.ibra.treasurea.arena.impl.grid.element.Impassable;
 import me.ibra.treasurea.arena.impl.grid.element.explorer.Explorer;
 import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
 import me.ibra.treasurea.arena.impl.grid.element.mountain.Mountain;
@@ -8,7 +9,7 @@ import me.ibra.treasurea.arena.impl.grid.element.treasure.Treasure;
 import org.junit.jupiter.api.Test;
 
 import static me.ibra.treasurea.arena.impl.grid.element.GridElement.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GridCreationTest {
 
@@ -27,6 +28,7 @@ public class GridCreationTest {
         assertEquals(HEIGHT, gridElement.getHeight());
         assertEquals(1, gridElement.getX());
         assertEquals(1, gridElement.getY());
+        assertFalse(gridElement instanceof Impassable);
         assertEquals("P-1-1", gridElement.toString());
     }
 
@@ -37,6 +39,7 @@ public class GridCreationTest {
         assertEquals(HEIGHT, gridElement.getHeight());
         assertEquals(1, gridElement.getX());
         assertEquals(1, gridElement.getY());
+        assertTrue(gridElement instanceof Impassable);
         assertEquals("M-1-1", gridElement.toString());
     }
 
@@ -47,6 +50,7 @@ public class GridCreationTest {
         assertEquals(HEIGHT, gridElement.getHeight());
         assertEquals(0, gridElement.getX());
         assertEquals(3, gridElement.getY());
+        assertFalse(gridElement instanceof Impassable);
         assertEquals("T-0-3-2", gridElement.toString());
     }
 
