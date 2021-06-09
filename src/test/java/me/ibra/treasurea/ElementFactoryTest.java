@@ -28,7 +28,7 @@ public class ElementFactoryTest {
     void should_manufacture_lowland_element() {
         try (MockedConstruction<LowLand> mocked =
                      mockConstructionWithAnswer(
-                             LowLand.class, invocation -> new LowLand())) {
+                             LowLand.class, invocation -> new LowLand(1, 1))) {
             Element element = ElementFactory.createElement("P-1-1");
             assertTrue(element instanceof LowLand);
         }
@@ -38,7 +38,7 @@ public class ElementFactoryTest {
     void should_manufacture_mountain_element() {
         try (MockedConstruction<Mountain> mockedMountain =
                      mockConstructionWithAnswer(
-                             Mountain.class, invocation -> new Mountain())) {
+                             Mountain.class, invocation -> new Mountain(1, 1))) {
             Element element = ElementFactory.createElement("M-1-1");
             assertTrue(element instanceof Mountain);
         }
@@ -48,7 +48,7 @@ public class ElementFactoryTest {
     void should_manufacture_treasure_element() {
         try (MockedConstruction<Treasure> mockedTreasure =
                      mockConstructionWithAnswer(
-                             Treasure.class, invocation -> new Treasure())) {
+                             Treasure.class, invocation -> new Treasure(0, 3))) {
             Element element = ElementFactory.createElement("T-0-3-2");
             assertTrue(element instanceof Treasure);
         }
@@ -58,7 +58,7 @@ public class ElementFactoryTest {
     void should_manufacture_explorer_element() {
         try (MockedConstruction<Explorer> mockedExplorer =
                      mockConstructionWithAnswer(
-                             Explorer.class, invocation -> new Explorer())) {
+                             Explorer.class, invocation -> new Explorer(1, 1))) {
             Element element = ElementFactory.createElement("A-Indiana-1-1-S-AADADA");
             assertTrue(element instanceof Explorer);
         }

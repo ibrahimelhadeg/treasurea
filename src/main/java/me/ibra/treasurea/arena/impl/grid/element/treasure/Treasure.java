@@ -4,8 +4,8 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class Treasure extends GridElementImpl {
 
-    public Treasure() {
-        super();
+    public Treasure(int x, int y) {
+        super(x, y);
     }
 
     @Override

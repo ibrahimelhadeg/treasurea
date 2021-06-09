@@ -4,8 +4,8 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class Mountain extends GridElementImpl {
 
-    public Mountain() {
-        super();
+    public Mountain(int x, int y) {
+        super(x, y);
     }
 
     @Override

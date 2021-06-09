@@ -4,8 +4,8 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class Explorer extends GridElementImpl {
 
-    public Explorer() {
-        super();
+    public Explorer(int x, int y) {
+        super(x, y);
     }
 
     @Override

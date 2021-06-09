@@ -4,8 +4,8 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class LowLand extends GridElementImpl {
 
-    public LowLand() {
-        super();
+    public LowLand(int x, int y) {
+        super(x, y);
     }
 
     @Override

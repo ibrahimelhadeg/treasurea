@@ -2,9 +2,24 @@ package me.ibra.treasurea.arena.impl.grid.element;
 
 import me.ibra.treasurea.arena.impl.grid.RectangularImpl;
 
-public abstract class GridElementImpl extends RectangularImpl implements GridElement {
+import java.awt.Point;
 
-    protected GridElementImpl() {
+public abstract class GridElementImpl extends RectangularImpl implements GridElement, Localizable {
+
+    private final Point coordinates;
+
+    protected GridElementImpl(int x, int y) {
         super(WIDTH, HEIGHT);
+        coordinates = new Point(x, y);
+    }
+
+    @Override
+    public int getX() {
+        return coordinates.getLocation().x;
+    }
+
+    @Override
+    public int getY() {
+        return coordinates.getLocation().y;
     }
 }

@@ -25,18 +25,24 @@ public class ElementFactory {
     }
 
     private static Element createLowLand() {
-        return new LowLand();
+        return new LowLand(1, 1);
     }
 
     private static Element createMountain(String mountainStr) {
-        return new Mountain();
+        String[] arenaProps = mountainStr.split("-");
+        return new Mountain(
+                Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
     }
 
     private static Element createTreasure(String treasureStr) {
-        return new Treasure();
+        String[] arenaProps = treasureStr.split("-");
+        return new Treasure(
+                Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
     }
 
     private static Element createExplorer(String explorerStr) {
-        return new Explorer();
+        String[] arenaProps = explorerStr.split("-");
+        return new Explorer(
+                Integer.parseInt(arenaProps[2]), Integer.parseInt(arenaProps[3]));
     }
 }
