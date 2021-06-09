@@ -58,7 +58,8 @@ public class ElementFactoryTest {
     void should_manufacture_explorer_element() {
         try (MockedConstruction<Explorer> mockedExplorer =
                      mockConstructionWithAnswer(
-                             Explorer.class, invocation -> new Explorer(1, 1))) {
+                             Explorer.class, invocation ->
+                                     new Explorer("Indiana", 1, 1, 'S', "AADADA"))) {
             Element element = ElementFactory.createElement("A-Indiana-1-1-S-AADADA");
             assertTrue(element instanceof Explorer);
         }

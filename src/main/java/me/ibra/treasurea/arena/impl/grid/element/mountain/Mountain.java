@@ -8,9 +8,4 @@ public class Mountain extends GridElementImpl implements Impassable {
     public Mountain(int x, int y) {
         super(x, y);
     }
-
-    @Override
-    public String toString() {
-        return "M-1-1";
-    }
 }

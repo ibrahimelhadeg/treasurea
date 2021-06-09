@@ -4,12 +4,26 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class Explorer extends GridElementImpl {
 
-    public Explorer(int x, int y) {
+    private final String name;
+    private final char orientation;
+    private final String moves;
+
+    public Explorer(String name, int x, int y, char orientation, String moves) {
         super(x, y);
+        this.name = name;
+        this.orientation = orientation;
+        this.moves = moves;
     }
 
-    @Override
-    public String toString() {
-        return "A-Indiana-1-1-S-AADADA";
+    public String getName() {
+        return name;
+    }
+
+    public char getOrientation() {
+        return orientation;
+    }
+
+    public String getMoves() {
+        return moves;
     }
 }

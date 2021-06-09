@@ -7,9 +7,4 @@ public class LowLand extends GridElementImpl {
     public LowLand(int x, int y) {
         super(x, y);
     }
-
-    @Override
-    public String toString() {
-        return "P-1-1";
-    }
 }

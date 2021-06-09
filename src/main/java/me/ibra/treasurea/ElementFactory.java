@@ -45,6 +45,10 @@ public class ElementFactory {
     private static Element createExplorer(String explorerStr) {
         String[] arenaProps = explorerStr.split("-");
         return new Explorer(
-                Integer.parseInt(arenaProps[2]), Integer.parseInt(arenaProps[3]));
+                arenaProps[1],
+                Integer.parseInt(arenaProps[2]),
+                Integer.parseInt(arenaProps[3]),
+                arenaProps[4].charAt(0),
+                arenaProps[5]);
     }
 }
