@@ -19,7 +19,9 @@ public class ElementFactory {
     }
 
     private static Element createArena(String arenaStr) {
-        return new FixedSizeGrid(arenaStr);
+        String[] arenaProps = arenaStr.split("-");
+        return new FixedSizeGrid(
+                Integer.parseInt(arenaProps[1]), Integer.parseInt(arenaProps[2]));
     }
 
     private static Element createLowLand() {
@@ -27,14 +29,14 @@ public class ElementFactory {
     }
 
     private static Element createMountain(String mountainStr) {
-        return new Mountain(mountainStr);
+        return new Mountain();
     }
 
     private static Element createTreasure(String treasureStr) {
-        return new Treasure(treasureStr);
+        return new Treasure();
     }
 
     private static Element createExplorer(String explorerStr) {
-        return new Explorer(explorerStr);
+        return new Explorer();
     }
 }

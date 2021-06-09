@@ -1,15 +1,10 @@
 package me.ibra.treasurea.arena.impl.grid.element;
 
-public abstract class GridElementImpl implements GridElement {
+import me.ibra.treasurea.arena.impl.grid.RectangularImpl;
 
-    private final String representation;
+public abstract class GridElementImpl extends RectangularImpl implements GridElement {
 
-    protected GridElementImpl(String representation) {
-        this.representation = representation;
-    }
-
-    @Override
-    public String toString() {
-        return representation;
+    protected GridElementImpl() {
+        super(WIDTH, HEIGHT);
     }
 }

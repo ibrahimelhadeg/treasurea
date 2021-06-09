@@ -4,7 +4,12 @@ import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
 
 public class Treasure extends GridElementImpl {
 
-    public Treasure(String representation) {
-        super(representation);
+    public Treasure() {
+        super();
+    }
+
+    @Override
+    public String toString() {
+        return "T-0-3-2";
     }
 }

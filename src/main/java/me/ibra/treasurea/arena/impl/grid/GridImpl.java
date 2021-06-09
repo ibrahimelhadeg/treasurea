@@ -1,15 +1,13 @@
 package me.ibra.treasurea.arena.impl.grid;
 
-public abstract class GridImpl implements Grid {
+public abstract class GridImpl extends RectangularImpl implements Grid {
 
-    private final String representation;
-
-    protected GridImpl(String representation) {
-        this.representation = representation;
+    protected GridImpl(int width, int height) {
+        super(width, height);
     }
 
     @Override
     public String toString() {
-        return representation;
+        return String.format("C-%d-%d", getWidth(), getHeight());
     }
 }

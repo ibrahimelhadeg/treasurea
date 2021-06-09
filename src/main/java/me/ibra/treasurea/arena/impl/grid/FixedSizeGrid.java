@@ -2,7 +2,7 @@ package me.ibra.treasurea.arena.impl.grid;
 
 public class FixedSizeGrid extends GridImpl {
 
-    public FixedSizeGrid(String representation) {
-        super(representation);
+    public FixedSizeGrid(int width, int height) {
+        super(width, height);
     }
 }
