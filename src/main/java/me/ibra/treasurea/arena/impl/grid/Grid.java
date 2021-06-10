@@ -1,7 +1,8 @@
 package me.ibra.treasurea.arena.impl.grid;
 
 import me.ibra.treasurea.arena.Arena;
-import me.ibra.treasurea.arena.impl.grid.element.GridElement;
+import me.ibra.treasurea.element.CanMove;
+import me.ibra.treasurea.element.Localizable;
 
 import java.util.Optional;
 
@@ -9,5 +10,7 @@ public interface Grid extends Arena, Rectangular {
 
     int elementsCount();
 
-    Optional<GridElement> elementAt(int x, int y);
+    Optional<Localizable> elementAt(int x, int y);
+
+    void requestMove(CanMove move);
 }

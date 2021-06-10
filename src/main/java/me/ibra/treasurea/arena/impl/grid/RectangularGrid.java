@@ -2,6 +2,7 @@ package me.ibra.treasurea.arena.impl.grid;
 
 import com.google.common.graph.ImmutableGraph;
 import me.ibra.treasurea.arena.impl.grid.element.GridElement;
+import me.ibra.treasurea.element.CanMove;
 import me.ibra.treasurea.element.Localizable;
 
 import java.util.Optional;
@@ -27,5 +28,10 @@ public class RectangularGrid extends RectangularImpl implements Grid {
                 return Optional.of(element);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public void requestMove(CanMove move) {
+
     }
 }

@@ -1,9 +1,12 @@
-package me.ibra.treasurea.arena.impl.grid.element;
+package me.ibra.treasurea.arena.impl.grid;
 
+import me.ibra.treasurea.arena.impl.grid.element.Explorer;
+import me.ibra.treasurea.arena.impl.grid.element.LowLand;
+import me.ibra.treasurea.arena.impl.grid.element.Mountain;
+import me.ibra.treasurea.arena.impl.grid.element.Treasure;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
-import static me.ibra.treasurea.util.Orientation.SOUTH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GridElementEqualsHashTest {
@@ -39,8 +42,8 @@ public class GridElementEqualsHashTest {
     void explorer_should_respect_equals_and_hash_contracts() {
         EqualsVerifier.forClass(Explorer.class)
                 .withRedefinedSuperclass()
-                .withNonnullFields("coordinates")
-                .withOnlyTheseFields("coordinates")
+                .withNonnullFields("name")
+                .withOnlyTheseFields("name")
                 .verify();
     }
 
@@ -49,22 +52,14 @@ public class GridElementEqualsHashTest {
         LowLand lowLandAtOneOne = new LowLand(1, 1);
         Mountain mountainAtOneOne = new Mountain(1, 1);
         Treasure treasureAtOneOne = new Treasure(1, 1, 2);
-        Explorer explorerAtOneOne = new Explorer("Lara", 1, 1, SOUTH, "AADADAGGA");
 
         assertEquals(lowLandAtOneOne, mountainAtOneOne);
         assertEquals(lowLandAtOneOne, treasureAtOneOne);
-        assertEquals(lowLandAtOneOne, explorerAtOneOne);
 
         assertEquals(mountainAtOneOne, lowLandAtOneOne);
         assertEquals(mountainAtOneOne, treasureAtOneOne);
-        assertEquals(mountainAtOneOne, explorerAtOneOne);
 
         assertEquals(treasureAtOneOne, lowLandAtOneOne);
         assertEquals(treasureAtOneOne, mountainAtOneOne);
-        assertEquals(treasureAtOneOne, explorerAtOneOne);
-
-        assertEquals(explorerAtOneOne, lowLandAtOneOne);
-        assertEquals(explorerAtOneOne, mountainAtOneOne);
-        assertEquals(explorerAtOneOne, treasureAtOneOne);
     }
 }

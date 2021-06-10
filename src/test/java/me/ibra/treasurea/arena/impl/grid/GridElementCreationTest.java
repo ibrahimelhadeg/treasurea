@@ -1,6 +1,5 @@
 package me.ibra.treasurea.arena.impl.grid;
 
-import me.ibra.treasurea.arena.impl.grid.element.Explorer;
 import me.ibra.treasurea.arena.impl.grid.element.LowLand;
 import me.ibra.treasurea.arena.impl.grid.element.Mountain;
 import me.ibra.treasurea.arena.impl.grid.element.Treasure;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import static me.ibra.treasurea.arena.impl.grid.element.GridElement.HEIGHT;
 import static me.ibra.treasurea.arena.impl.grid.element.GridElement.WIDTH;
-import static me.ibra.treasurea.util.Orientation.SOUTH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GridElementCreationTest {
@@ -39,17 +37,5 @@ public class GridElementCreationTest {
         assertEquals(0, treasure.x());
         assertEquals(3, treasure.y());
         assertEquals(2, treasure.quantity());
-    }
-
-    @Test
-    void should_produce_explorer_of_name_Indiana_at_coordinates_one_one_with_default_size() {
-        Explorer explorer = new Explorer("Indiana", 1, 1, SOUTH, "AADADA");
-        assertEquals(WIDTH, explorer.width());
-        assertEquals(HEIGHT, explorer.height());
-        assertEquals("Indiana", explorer.name());
-        assertEquals(1, explorer.x());
-        assertEquals(1, explorer.y());
-        assertEquals(SOUTH, explorer.orientation());
-        assertEquals("AADADA", explorer.moves());
     }
 }

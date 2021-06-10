@@ -1,12 +1,10 @@
 package me.ibra.treasurea.arena.impl.grid;
 
-import me.ibra.treasurea.arena.impl.grid.element.Explorer;
 import me.ibra.treasurea.arena.impl.grid.element.LowLand;
 import me.ibra.treasurea.arena.impl.grid.element.Mountain;
 import me.ibra.treasurea.arena.impl.grid.element.Treasure;
 import org.junit.jupiter.api.Test;
 
-import static me.ibra.treasurea.util.Orientation.SOUTH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -53,8 +51,6 @@ public class GridCreationTest {
         Mountain mountainAtTwoOne = new Mountain(2, 1);
         Treasure treasureOfTwoAtZeroThree = new Treasure(0, 3, 2);
         Treasure treasureOfThreeAtOneThree = new Treasure(1, 3, 3);
-        Explorer explorerHasNameLaraAtOneOneFacingSouthWithMakingMovesAADADAGGA =
-                new Explorer("Lara", 1, 1, SOUTH, "AADADAGGA");
 
         Grid filledGrid = RectangularGridFactory
                 .createGrid(
@@ -62,8 +58,7 @@ public class GridCreationTest {
                         mountainAtOneZero,
                         mountainAtTwoOne,
                         treasureOfTwoAtZeroThree,
-                        treasureOfThreeAtOneThree,
-                        explorerHasNameLaraAtOneOneFacingSouthWithMakingMovesAADADAGGA);
+                        treasureOfThreeAtOneThree);
 
         assertEquals(12, filledGrid.elementsCount());
 
@@ -80,10 +75,7 @@ public class GridCreationTest {
         assertTrue(filledGrid.elementAt(1, 0).isPresent());
         assertTrue(filledGrid.elementAt(1, 0).get() instanceof Mountain);
         assertTrue(filledGrid.elementAt(1, 1).isPresent());
-        assertTrue(filledGrid.elementAt(1, 1).get() instanceof Explorer);
-        assertEquals("Lara", ((Explorer) filledGrid.elementAt(1, 1).get()).name());
-        assertEquals(SOUTH, ((Explorer) filledGrid.elementAt(1, 1).get()).orientation());
-        assertEquals("AADADAGGA", ((Explorer) filledGrid.elementAt(1, 1).get()).moves());
+        assertTrue(filledGrid.elementAt(1, 1).get() instanceof LowLand);
         assertTrue(filledGrid.elementAt(1, 2).isPresent());
         assertTrue(filledGrid.elementAt(1, 2).get() instanceof LowLand);
         assertTrue(filledGrid.elementAt(1, 3).isPresent());
