@@ -1,19 +1,14 @@
 package me.ibra.treasurea.arena.impl.grid;
 
-import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.ImmutableGraph;
 import me.ibra.treasurea.arena.impl.grid.element.GridElement;
+import me.ibra.treasurea.element.Localizable;
 
 import java.util.Optional;
 
 public class RectangularGrid extends RectangularImpl implements Grid {
 
     private final ImmutableGraph<GridElement> elements;
-
-    RectangularGrid(int width, int height) {
-        super(width, height);
-        this.elements = GraphBuilder.directed().<GridElement>immutable().build();
-    }
 
     RectangularGrid(int width, int height, ImmutableGraph<GridElement> elements) {
         super(width, height);
@@ -26,7 +21,7 @@ public class RectangularGrid extends RectangularImpl implements Grid {
     }
 
     @Override
-    public Optional<GridElement> elementAt(final int x, final int y) {
+    public Optional<Localizable> elementAt(final int x, final int y) {
         for (GridElement element: elements.nodes()) {
             if (element.x() == x && element.y() == y)
                 return Optional.of(element);
