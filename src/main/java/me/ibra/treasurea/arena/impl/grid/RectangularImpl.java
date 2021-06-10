@@ -11,12 +11,12 @@ public abstract class RectangularImpl implements Rectangular {
     }
 
     @Override
-    public int getWidth() {
+    public int width() {
         return width;
     }
 
     @Override
-    public int getHeight() {
+    public int height() {
         return height;
     }
 }

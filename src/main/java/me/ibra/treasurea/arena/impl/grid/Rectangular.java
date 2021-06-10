@@ -2,7 +2,7 @@ package me.ibra.treasurea.arena.impl.grid;
 
 public interface Rectangular {
 
-    int getWidth();
+    int width();
 
-    int getHeight();
+    int height();
 }

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface Grid extends Arena, Rectangular {
 
-    int getElementsNumber();
+    int elementsCount();
 
-    Optional<GridElement> getElementAt(int x, int y);
+    Optional<GridElement> elementAt(int x, int y);
 }

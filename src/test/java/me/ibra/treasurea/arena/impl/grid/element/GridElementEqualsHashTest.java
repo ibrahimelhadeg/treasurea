@@ -1,9 +1,5 @@
 package me.ibra.treasurea.arena.impl.grid.element;
 
-import me.ibra.treasurea.arena.impl.grid.element.explorer.Explorer;
-import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
-import me.ibra.treasurea.arena.impl.grid.element.mountain.Mountain;
-import me.ibra.treasurea.arena.impl.grid.element.treasure.Treasure;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 

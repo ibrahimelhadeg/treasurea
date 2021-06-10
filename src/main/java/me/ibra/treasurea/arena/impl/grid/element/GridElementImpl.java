@@ -1,6 +1,7 @@
 package me.ibra.treasurea.arena.impl.grid.element;
 
 import me.ibra.treasurea.arena.impl.grid.RectangularImpl;
+import me.ibra.treasurea.element.Localizable;
 
 import java.awt.*;
 
@@ -14,12 +15,12 @@ public abstract class GridElementImpl extends RectangularImpl implements GridEle
     }
 
     @Override
-    public int getX() {
+    public int x() {
         return coordinates.getLocation().x;
     }
 
     @Override
-    public int getY() {
+    public int y() {
         return coordinates.getLocation().y;
     }
 
@@ -28,14 +29,14 @@ public abstract class GridElementImpl extends RectangularImpl implements GridEle
         boolean result = false;
         if (other instanceof Localizable) {
             Localizable that = (Localizable) other;
-            result = (that.canEqual(this) && this.getX() == that.getX() && this.getY() == that.getY());
+            result = (that.canEqual(this) && this.x() == that.x() && this.y() == that.y());
         }
         return result;
     }
 
     @Override
     public int hashCode() {
-        return (41 * (41 + getX()) + getY());
+        return (41 * (41 + x()) + y());
     }
 
     public boolean canEqual(Object other) {

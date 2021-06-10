@@ -3,7 +3,7 @@ package me.ibra.treasurea.arena.impl.grid;
 import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.ImmutableGraph;
 import me.ibra.treasurea.arena.impl.grid.element.GridElement;
-import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
+import me.ibra.treasurea.arena.impl.grid.element.LowLand;
 
 import java.util.List;
 

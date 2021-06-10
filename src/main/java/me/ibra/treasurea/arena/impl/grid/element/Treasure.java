@@ -1,15 +1,20 @@
-package me.ibra.treasurea.arena.impl.grid.element.lowland;
+package me.ibra.treasurea.arena.impl.grid.element;
 
-import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
-import me.ibra.treasurea.arena.impl.grid.element.Localizable;
-import me.ibra.treasurea.arena.impl.grid.element.explorer.Explorer;
-import me.ibra.treasurea.arena.impl.grid.element.mountain.Mountain;
-import me.ibra.treasurea.arena.impl.grid.element.treasure.Treasure;
+import me.ibra.treasurea.element.Collectable;
+import me.ibra.treasurea.element.Localizable;
+import me.ibra.treasurea.element.Crossable;
 
-public class LowLand extends GridElementImpl {
+public class Treasure extends GridElementImpl implements Crossable, Collectable {
 
-    public LowLand(int x, int y) {
+    private final int quantity;
+
+    public Treasure(int x, int y, int quantity) {
         super(x, y);
+        this.quantity = quantity;
+    }
+
+    public int quantity() {
+        return quantity;
     }
 
     @Override

@@ -1,22 +1,12 @@
-package me.ibra.treasurea.arena.impl.grid.element.treasure;
+package me.ibra.treasurea.arena.impl.grid.element;
 
-import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
-import me.ibra.treasurea.arena.impl.grid.element.Localizable;
-import me.ibra.treasurea.arena.impl.grid.element.explorer.Explorer;
-import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
-import me.ibra.treasurea.arena.impl.grid.element.mountain.Mountain;
+import me.ibra.treasurea.element.Localizable;
+import me.ibra.treasurea.element.Uncrossable;
 
-public class Treasure extends GridElementImpl {
+public class Mountain extends GridElementImpl implements Uncrossable {
 
-    private final int number;
-
-    public Treasure(int x, int y, int number) {
+    public Mountain(int x, int y) {
         super(x, y);
-        this.number = number;
-    }
-
-    public int getNumber() {
-        return number;
     }
 
     @Override

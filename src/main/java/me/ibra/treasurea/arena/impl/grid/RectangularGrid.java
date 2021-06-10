@@ -3,9 +3,7 @@ package me.ibra.treasurea.arena.impl.grid;
 import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.ImmutableGraph;
 import me.ibra.treasurea.arena.impl.grid.element.GridElement;
-import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
 
-import java.util.List;
 import java.util.Optional;
 
 public class RectangularGrid extends RectangularImpl implements Grid {
@@ -23,14 +21,14 @@ public class RectangularGrid extends RectangularImpl implements Grid {
     }
 
     @Override
-    public int getElementsNumber() {
+    public int elementsCount() {
         return elements.nodes().size();
     }
 
     @Override
-    public Optional<GridElement> getElementAt(final int x, final int y) {
+    public Optional<GridElement> elementAt(final int x, final int y) {
         for (GridElement element: elements.nodes()) {
-            if (element.getX() == x && element.getY() == y)
+            if (element.x() == x && element.y() == y)
                 return Optional.of(element);
         }
         return Optional.empty();

@@ -1,12 +1,10 @@
-package me.ibra.treasurea.arena.impl.grid.element.explorer;
+package me.ibra.treasurea.arena.impl.grid.element;
 
-import me.ibra.treasurea.arena.impl.grid.element.GridElementImpl;
-import me.ibra.treasurea.arena.impl.grid.element.Localizable;
-import me.ibra.treasurea.arena.impl.grid.element.lowland.LowLand;
-import me.ibra.treasurea.arena.impl.grid.element.mountain.Mountain;
-import me.ibra.treasurea.arena.impl.grid.element.treasure.Treasure;
+import me.ibra.treasurea.element.CanMove;
+import me.ibra.treasurea.element.Localizable;
+import me.ibra.treasurea.element.Uncrossable;
 
-public class Explorer extends GridElementImpl {
+public class Explorer extends GridElementImpl implements Uncrossable, CanMove {
 
     private final String name;
     private final char orientation;
@@ -19,15 +17,15 @@ public class Explorer extends GridElementImpl {
         this.moves = moves;
     }
 
-    public String getName() {
+    public String name() {
         return name;
     }
 
-    public char getOrientation() {
+    public char orientation() {
         return orientation;
     }
 
-    public String getMoves() {
+    public String moves() {
         return moves;
     }
 

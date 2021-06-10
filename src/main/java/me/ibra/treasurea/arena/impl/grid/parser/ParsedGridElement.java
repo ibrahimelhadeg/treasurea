@@ -10,7 +10,7 @@ public class ParsedGridElement {
         private int y;
         private char orientation;
         private String name;
-        private int occurrences;
+        private int quantity;
         private String moves;
 
         public Builder() { }
@@ -25,7 +25,7 @@ public class ParsedGridElement {
                     y,
                     orientation,
                     name,
-                    occurrences,
+                    quantity,
                     moves);
         }
 
@@ -65,7 +65,7 @@ public class ParsedGridElement {
         }
 
         public Builder occurrences(int occurrences) {
-            this.occurrences = occurrences;
+            this.quantity = occurrences;
             return this;
         }
 
@@ -77,7 +77,7 @@ public class ParsedGridElement {
 
     private ParsedGridElement(
             char type, int width, int height, int x, int y,
-            char orientation, String name, int occurrences, String moves) {
+            char orientation, String name, int quantity, String moves) {
         this.type = type;
         this.width = width;
         this.height = height;
@@ -85,7 +85,7 @@ public class ParsedGridElement {
         this.y = y;
         this.orientation = orientation;
         this.name = name;
-        this.occurrences = occurrences;
+        this.quantity = quantity;
         this.moves = moves;
     }
 
@@ -96,7 +96,7 @@ public class ParsedGridElement {
     private final int y;
     private final char orientation;
     private final String name;
-    private final int occurrences;
+    private final int quantity;
     private final String moves;
 
     public char type() {
@@ -128,7 +128,7 @@ public class ParsedGridElement {
     }
 
     public int occurrences() {
-        return occurrences;
+        return quantity;
     }
 
     public String moves() {
