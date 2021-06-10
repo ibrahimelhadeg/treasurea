@@ -15,20 +15,14 @@ public enum Orientation {
     }
 
     public static Orientation ofCharacter(char character) {
-        switch (character) {
-            case 'E':
-                return EAST;
-            case 'N':
-                return NORTH;
-            case 'S':
-                return SOUTH;
-            case 'W':
-            case 'O':
-                return WEST;
-            default:
-                throw new IllegalArgumentException(
-                        String.format("The character %s is not allowed", character));
-        }
+        return switch (character) {
+            case 'E' -> EAST;
+            case 'N' -> NORTH;
+            case 'S' -> SOUTH;
+            case 'W', 'O' -> WEST;
+            default -> throw new IllegalArgumentException(
+                    String.format("The character %s is not allowed", character));
+        };
     }
 
     public Orientation turnLeft() {
