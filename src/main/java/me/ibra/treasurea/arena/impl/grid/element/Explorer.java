@@ -3,14 +3,15 @@ package me.ibra.treasurea.arena.impl.grid.element;
 import me.ibra.treasurea.element.CanMove;
 import me.ibra.treasurea.element.Localizable;
 import me.ibra.treasurea.element.Uncrossable;
+import me.ibra.treasurea.util.Orientation;
 
 public class Explorer extends GridElementImpl implements Uncrossable, CanMove {
 
     private final String name;
-    private final char orientation;
+    private final Orientation orientation;
     private final String moves;
 
-    public Explorer(String name, int x, int y, char orientation, String moves) {
+    public Explorer(String name, int x, int y, Orientation orientation, String moves) {
         super(x, y);
         this.name = name;
         this.orientation = orientation;
@@ -21,7 +22,7 @@ public class Explorer extends GridElementImpl implements Uncrossable, CanMove {
         return name;
     }
 
-    public char orientation() {
+    public Orientation orientation() {
         return orientation;
     }
 

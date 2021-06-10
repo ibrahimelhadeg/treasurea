@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static me.ibra.treasurea.util.Orientation.SOUTH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -55,7 +56,7 @@ public class GridCreationTest {
         Treasure treasureOfTwoAtZeroThree = new Treasure(0, 3, 2);
         Treasure treasureOfThreeAtOneThree = new Treasure(1, 3, 3);
         Explorer explorerHasNameLaraAtOneOneFacingSouthWithMakingMovesAADADAGGA =
-                new Explorer("Lara", 1, 1, 'S', "AADADAGGA");
+                new Explorer("Lara", 1, 1, SOUTH, "AADADAGGA");
 
         Grid filledGrid = RectangularGridFactory
                 .createGridPopulatedWithCustomElements(
@@ -83,7 +84,7 @@ public class GridCreationTest {
         assertTrue(filledGrid.elementAt(1, 1).isPresent());
         assertTrue(filledGrid.elementAt(1, 1).get() instanceof Explorer);
         assertEquals("Lara", ((Explorer) filledGrid.elementAt(1, 1).get()).name());
-        assertEquals('S', ((Explorer) filledGrid.elementAt(1, 1).get()).orientation());
+        assertEquals(SOUTH, ((Explorer) filledGrid.elementAt(1, 1).get()).orientation());
         assertEquals("AADADAGGA", ((Explorer) filledGrid.elementAt(1, 1).get()).moves());
         assertTrue(filledGrid.elementAt(1, 2).isPresent());
         assertTrue(filledGrid.elementAt(1, 2).get() instanceof LowLand);

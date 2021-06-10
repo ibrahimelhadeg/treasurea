@@ -3,7 +3,8 @@ package me.ibra.treasurea.arena.impl.grid.element;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static me.ibra.treasurea.util.Orientation.SOUTH;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GridElementEqualsHashTest {
 
@@ -48,22 +49,22 @@ public class GridElementEqualsHashTest {
         LowLand lowLandAtOneOne = new LowLand(1, 1);
         Mountain mountainAtOneOne = new Mountain(1, 1);
         Treasure treasureAtOneOne = new Treasure(1, 1, 2);
-        Explorer explorerAtOneOne = new Explorer("Lara", 1, 1, 'S', "AADADAGGA");
+        Explorer explorerAtOneOne = new Explorer("Lara", 1, 1, SOUTH, "AADADAGGA");
 
-        assertTrue(lowLandAtOneOne.equals(mountainAtOneOne));
-        assertTrue(lowLandAtOneOne.equals(treasureAtOneOne));
-        assertTrue(lowLandAtOneOne.equals(explorerAtOneOne));
+        assertEquals(lowLandAtOneOne, mountainAtOneOne);
+        assertEquals(lowLandAtOneOne, treasureAtOneOne);
+        assertEquals(lowLandAtOneOne, explorerAtOneOne);
 
-        assertTrue(mountainAtOneOne.equals(lowLandAtOneOne));
-        assertTrue(mountainAtOneOne.equals(treasureAtOneOne));
-        assertTrue(mountainAtOneOne.equals(explorerAtOneOne));
+        assertEquals(mountainAtOneOne, lowLandAtOneOne);
+        assertEquals(mountainAtOneOne, treasureAtOneOne);
+        assertEquals(mountainAtOneOne, explorerAtOneOne);
 
-        assertTrue(treasureAtOneOne.equals(lowLandAtOneOne));
-        assertTrue(treasureAtOneOne.equals(mountainAtOneOne));
-        assertTrue(treasureAtOneOne.equals(explorerAtOneOne));
+        assertEquals(treasureAtOneOne, lowLandAtOneOne);
+        assertEquals(treasureAtOneOne, mountainAtOneOne);
+        assertEquals(treasureAtOneOne, explorerAtOneOne);
 
-        assertTrue(explorerAtOneOne.equals(lowLandAtOneOne));
-        assertTrue(explorerAtOneOne.equals(mountainAtOneOne));
-        assertTrue(explorerAtOneOne.equals(treasureAtOneOne));
+        assertEquals(explorerAtOneOne, lowLandAtOneOne);
+        assertEquals(explorerAtOneOne, mountainAtOneOne);
+        assertEquals(explorerAtOneOne, treasureAtOneOne);
     }
 }
