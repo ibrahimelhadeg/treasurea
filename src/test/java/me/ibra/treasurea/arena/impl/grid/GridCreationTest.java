@@ -6,8 +6,6 @@ import me.ibra.treasurea.arena.impl.grid.element.Mountain;
 import me.ibra.treasurea.arena.impl.grid.element.Treasure;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static me.ibra.treasurea.util.Orientation.SOUTH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,14 +14,14 @@ public class GridCreationTest {
 
     @Test
     void should_produce_empty_grid_arena_of_width_three_and_height_four() {
-        Grid grid = RectangularGridFactory.createEmptyGrid(3, 4);
+        Grid grid = RectangularGridFactory.createGrid(3, 4);
         assertEquals(3, grid.width());
         assertEquals(4, grid.height());
     }
 
     @Test
     void should_manufacture_grid_arena_populated_with_lowlands() {
-        Grid filledGrid = RectangularGridFactory.createGridPopulatedWithLowLands(3 , 3);
+        Grid filledGrid = RectangularGridFactory.createGrid(3 , 3);
 
         assertEquals(9, filledGrid.elementsCount());
 
@@ -59,13 +57,13 @@ public class GridCreationTest {
                 new Explorer("Lara", 1, 1, SOUTH, "AADADAGGA");
 
         Grid filledGrid = RectangularGridFactory
-                .createGridPopulatedWithCustomElements(
+                .createGrid(
                         3 , 4,
-                        List.of(mountainAtOneZero,
-                                mountainAtTwoOne,
-                                treasureOfTwoAtZeroThree,
-                                treasureOfThreeAtOneThree,
-                                explorerHasNameLaraAtOneOneFacingSouthWithMakingMovesAADADAGGA));
+                        mountainAtOneZero,
+                        mountainAtTwoOne,
+                        treasureOfTwoAtZeroThree,
+                        treasureOfThreeAtOneThree,
+                        explorerHasNameLaraAtOneOneFacingSouthWithMakingMovesAADADAGGA);
 
         assertEquals(12, filledGrid.elementsCount());
 

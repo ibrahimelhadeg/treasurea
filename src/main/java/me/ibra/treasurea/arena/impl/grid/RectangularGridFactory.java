@@ -5,66 +5,51 @@ import com.google.common.graph.ImmutableGraph;
 import me.ibra.treasurea.arena.impl.grid.element.GridElement;
 import me.ibra.treasurea.arena.impl.grid.element.LowLand;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class RectangularGridFactory {
 
-    public static RectangularGrid createEmptyGrid(int width, int height) {
-        return new RectangularGrid(width, height);
+    public static RectangularGrid createGrid(
+            int width, int height, GridElement... customElements) {
+
+        ImmutableGraph.Builder<GridElement> graphBuilder = GraphBuilder.directed().immutable();
+
+        if (customElements.length > 0) {
+            Arrays.stream(customElements).forEach(graphBuilder::addNode);
+        }
+        return assembleRectangularGrid(width, height, graphBuilder);
     }
 
-    public static RectangularGrid createGridPopulatedWithLowLands(
-            int width, int height) {
-        ImmutableGraph.Builder<GridElement> elements = GraphBuilder.directed().immutable();
+    private static ImmutableGraph<GridElement> fillEmptyNodeOnGraphWithLowLands(
+            int width, int height, ImmutableGraph.Builder<GridElement> graphBuilder) {
         for (int horizontal = 0; horizontal < width; horizontal++) {
             for (int vertical = 0; vertical < height; vertical++) {
                 LowLand lowLand = new LowLand(horizontal, vertical);
                 if (vertical - 1 >= 0) {
                     LowLand northNeighbor = new LowLand(horizontal, vertical - 1);
-                    elements.putEdge(lowLand, northNeighbor);
+                    graphBuilder.putEdge(lowLand, northNeighbor);
                 }
                 if (vertical + 1 < height) {
                     LowLand southNeighbor = new LowLand(horizontal, vertical + 1);
-                    elements.putEdge(lowLand, southNeighbor);
+                    graphBuilder.putEdge(lowLand, southNeighbor);
                 }
                 if (horizontal - 1 >= 0) {
                     LowLand westNeighbor = new LowLand(horizontal - 1, vertical);
-                    elements.putEdge(lowLand, westNeighbor);
+                    graphBuilder.putEdge(lowLand, westNeighbor);
                 }
                 if (horizontal + 1 < width) {
                     LowLand eastNeighbor = new LowLand(horizontal + 1, vertical);
-                    elements.putEdge(lowLand, eastNeighbor);
+                    graphBuilder.putEdge(lowLand, eastNeighbor);
                 }
             }
         }
-        return new RectangularGrid(width, height, elements.build());
+        return graphBuilder.build();
     }
 
-    public static RectangularGrid createGridPopulatedWithCustomElements(
-            int width, int height, List<GridElement> customElements) {
-        ImmutableGraph.Builder<GridElement> elements = GraphBuilder.directed().immutable();
-        customElements.forEach(elements::addNode);
-        for (int horizontal = 0; horizontal < width; horizontal++) {
-            for (int vertical = 0; vertical < height; vertical++) {
-                LowLand lowLand = new LowLand(horizontal, vertical);
-                if (vertical - 1 >= 0) {
-                    LowLand northNeighbor = new LowLand(horizontal, vertical - 1);
-                    elements.putEdge(lowLand, northNeighbor);
-                }
-                if (vertical + 1 < height) {
-                    LowLand southNeighbor = new LowLand(horizontal, vertical + 1);
-                    elements.putEdge(lowLand, southNeighbor);
-                }
-                if (horizontal - 1 >= 0) {
-                    LowLand westNeighbor = new LowLand(horizontal - 1, vertical);
-                    elements.putEdge(lowLand, westNeighbor);
-                }
-                if (horizontal + 1 < width) {
-                    LowLand eastNeighbor = new LowLand(horizontal + 1, vertical);
-                    elements.putEdge(lowLand, eastNeighbor);
-                }
-            }
-        }
-        return new RectangularGrid(width, height, elements.build());
+    private static RectangularGrid assembleRectangularGrid(
+            int width, int height, ImmutableGraph.Builder<GridElement> graphBuilder) {
+        return new RectangularGrid(
+                width, height,
+                fillEmptyNodeOnGraphWithLowLands(width, height, graphBuilder));
     }
 }
