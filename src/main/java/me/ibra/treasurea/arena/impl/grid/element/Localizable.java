@@ -5,4 +5,6 @@ public interface Localizable {
     int getX();
 
     int getY();
+
+    boolean canEqual(Object other);
 }
